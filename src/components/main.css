@@ -1,0 +1,15 @@
+.card-items{
+    box-shadow: 0px 0px 04px 0px;
+}
+
+.imghero {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 100%;
+    box-shadow: #c7c4b9;
+    background-color: white;
+    background: white;
+  }
+
