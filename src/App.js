@@ -1,55 +1,69 @@
-import "./App.css";
-import Header from "./components/Header/Header";
-import {
-  BrowserRouter as Router,
-  Routes, 
-  Route ,
-  Redirect,
-} from "react-router-dom";
-import StackOverFlow from './components/StackOverFlow';
-import Question from "./components/Add-Question/Question";
-import ViewQuestion from "./components/ViewQuestion"
-import Auth from './components/Auth'
+import React, { useEffect } from 'react'
+import Auth from './Auth/Index'
+import userSlice from './features/userSlice'
+import { selectUser, login, logout } from './features/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { login, logout, selectUser } from "./features/userSlice";
-import { Component, useEffect } from "react";
-import {auth} from './firebase.js'
+import { auth } from './firebase'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect,
+  } from "react-router-dom";
+import component1 from './component/index'
 
 function App() {
-  // const user = useSelector(selectUser)
-  // const dispatch = useDispatch
+    const user = useSelector(selectUser)
+    const dispatch = useDispatch()
 
-  // useEffect(() => {
-  //   auth.onAuthStateChanged((authUser) => {
-  //     if(authUser){
-  //       dispatch(login({
-  //         uid: authUser.uid,
-  //         photo: authUser.photoURL,
-  //         displayName: authUser.displayName,
-  //         email: authUser.email
-  //       }))
-  //     }else{
-  //       dispatch(logout())
-  //     }
-  //   })
-  // }, [dispatch])
+    useEffect(() => {
+        auth.onAuthStateChanged((authUser) => {
+          if (authUser) {
+            dispatch(
+              login({
+                uid: authUser.uid,
+                photo: authUser.photoURL,
+                displayName: authUser.displayName,
+                email: authUser.email,
+              })
+            );
+          } else {
+            dispatch(logout());
+          }
+         
+        });
+      }, [dispatch]);
 
-
-  
+      const PrivateRoute = ({ component: Component, ...rest }) => (
+        <Route
+          {...rest}
+          render={(props) =>
+            user ? (
+              <Component {...props} />
+            ) : (
+              <Redirect
+                to={{
+                  pathname: "/auth",
+                  state: {
+                    from: props.location,
+                  },
+                }}
+              />
+            )
+          }
+        />
+      );
 
   return (
-    <div className="App"> 
-    <Router>
-        <Header />
-        <Routes>
-          <Route exact path="/" element = {<StackOverFlow/>}/>
-          <Route exact path="/auth" element = {<Auth/>}/>
-          <Route exact path="add-question" element = {<Question/>}/>
-          <Route exact path="question" element = {<ViewQuestion/>}/>
-        </Routes>
-      </Router> 
+    <div>
+       <Router>
+        <Switch>
+          <Route exact path="/auth" component={Auth} />
+          <PrivateRoute exact path="/" component={component1} />
+        </Switch>
+      </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
