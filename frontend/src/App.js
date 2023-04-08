@@ -14,6 +14,7 @@ import { auth } from "./firebase";
 import MainNavbar from './component/Main/Header/MainNavbar'
 import MainContent from './component/Main/MainSection/MainContent'
 import { EngineeringCollages } from "./component/Main/Engineering/EngineeringCollages";
+import SideBar from './component/Main/Header/Sidebar'
 
 import {
   BrowserRouter as Router,
@@ -70,7 +71,7 @@ function App() {
         <Switch>
           <Route exact path="/auth" component={Auth} />
           <Route exact path="/" component={MainContent} />
-          <Route exact path="/engcollages" component={EngineeringCollages} />
+          <Route exact path="/engcollages" component={SideBar} />
           <PrivateRoute exact path="/q&a" component={StackOverFlow} />
           <PrivateRoute exact path="/add-question" component={Questions} />
           <PrivateRoute exact path="/question" component={ViewQuestion} />
