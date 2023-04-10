@@ -1,7 +1,7 @@
 import React from 'react'
-import '../StackOverFlow/css/index.css'
+import '../Main/css/index.css'
 import MainQuestion from './MainQuestion'
-import Sidebar from '../StackOverFlow/Sidebar'
+import Sidebar from '../Main/Sidebar'
 
 function index() {
   return (

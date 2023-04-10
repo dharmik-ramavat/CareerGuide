@@ -9,8 +9,8 @@ import parser from "html-react-parser";
 import { Link } from "react-router-dom";
 import "./index.css";
 import { useSelector } from "react-redux";
-import { selectUser } from "../../features/userSlice";
-import { stringAvatar } from "../StackOverFlow/utils/Avatar";
+import { selectUser } from "../../../features/userSlice";
+import { stringAvatar } from "../Main/utils/Avatar";
 
 
 function MainQuestion() {
@@ -136,7 +136,6 @@ function MainQuestion() {
     // setShow(true)
   };
 
-  // const body =(questionData.body).toString()
   console.log(questionData.body)
   return (
     <div className="main">
@@ -156,26 +155,10 @@ function MainQuestion() {
             <p>
               Active<span>today</span>
             </p>
-            <p>
-              Viewed<span>43times</span>
-            </p>
           </div>
         </div>
         <div className="all-questions">
           <div className="all-questions-container">
-            <div className="all-questions-left">
-              <div className="all-options">
-                <p className="arrow">▲</p>
-
-                <p className="arrow">0</p>
-
-                <p className="arrow">▼</p>
-
-                <BookmarkIcon />
-
-                <HistoryIcon />
-              </div>
-            </div>
             <div className="question-answer">
               <p>{questionData.body !== undefined ? (parser(questionData?.body)) : null}</p>
 
@@ -184,11 +167,11 @@ function MainQuestion() {
                   asked {new Date(questionData?.created_at).toLocaleString()}
                 </small>
                 <div className="auth-details">
-                  <Avatar {...stringAvatar(questionData?.user?.displayName)} />
+                  <center><Avatar {...stringAvatar(questionData?.user?.displayName)} /></center>
                   <p>
                     {questionData?.user?.displayName
                       ? questionData?.user?.displayName
-                      : "Natalia lee"}
+                      : "User name"}
                   </p>
                 </div>
               </div>
@@ -199,7 +182,7 @@ function MainQuestion() {
                       <p key={_qd?._id}>
                         {_qd.comment}{" "}
                         <span>
-                          - {_qd.user ? _qd.user.displayName : "Nate Eldredge"}
+                          - {_qd.user ? _qd.user.displayName : "User name"}
                         </span>{" "}
                         {"    "}
                         <small>
@@ -263,7 +246,7 @@ function MainQuestion() {
                 key={_q._id}
                 className="all-questions-container"
               >
-                <div className="all-questions-left">
+                {/* <div className="all-questions-left">
                   <div className="all-options">
                     <p className="arrow">▲</p>
 
@@ -275,7 +258,7 @@ function MainQuestion() {
 
                     <HistoryIcon />
                   </div>
-                </div>
+                </div> */}
                 <div className="question-answer">
                   {parser(_q.answer)}
                   <div className="author">
@@ -287,7 +270,7 @@ function MainQuestion() {
                       <p>
                         {_q?.user?.displayName
                           ? _q?.user?.displayName
-                          : "Natalia lee"}
+                          : "User Name "}
                       </p>
                     </div>
                   </div>

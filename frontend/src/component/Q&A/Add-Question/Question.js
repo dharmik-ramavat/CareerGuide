@@ -6,7 +6,7 @@ import "./Question.css";
 import Editor from 'react-quill/lib/index'
 import axios from "axios";
 import { TagsInput } from "react-tag-input-component";
-import { selectUser } from '../../features/userSlice'
+import { selectUser } from '../../../features/userSlice'
 import { useHistory } from "react-router-dom";
 
 

@@ -17,7 +17,7 @@ function Main({ questions }) {
         </div>
         <div className="main-desc">
           <p>{questions && questions.length} Questions</p>
-          <div className="main-filter">
+          {/* <div className="main-filter">
             <div className="main-tabs">
               <div className="main-tab">
                 <Link>Newest</Link>
@@ -33,7 +33,7 @@ function Main({ questions }) {
               <FilterList />
               <p>Filter</p>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="questions">
           {questions.map((_q) => (

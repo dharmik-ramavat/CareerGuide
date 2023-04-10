@@ -77,3 +77,7 @@
 .comments >p:hover{
     color: #0151f0a8
 }
+
+.auth-details{
+  align-items: center;
+}

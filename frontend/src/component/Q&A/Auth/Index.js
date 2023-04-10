@@ -5,7 +5,7 @@ import {
 } from "firebase/auth";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { auth, provider } from "../../firebase";
+import { auth, provider } from "../../../firebase";
 import "./Index.css";
 import GoogleIcon from "./google.png";
 

@@ -6,9 +6,10 @@ import { Link } from "react-router-dom";
 import { auth } from "../../../firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../../features/userSlice";
+import { useState } from "react";
 
 function MainNavbar() {
-
+ 
   const user = useSelector(selectUser);
 
   function stringToColor(string) {
@@ -48,7 +49,18 @@ function MainNavbar() {
         <div className="header-middle">
           <div className="header-search-container">
             <SearchIcon />
-            <input type="text" placeholder="Search Question..."/>
+            <input type="text" placeholder="Search..."/>
+          </div>
+          <div className='menu'>
+             <ul>
+                <li className="menu-option"><Link to="/">HOME</Link></li>
+                <li className="menu-option"><Link to="#">MBA</Link></li>
+                <li className="menu-option"><Link to="engineering">ENGINEERING</Link></li>
+                <li className="menu-option"><Link to="#">MEDICAL</Link></li>
+                <li className="menu-option"><Link to="#">DESIGN</Link></li>
+                <li className="menu-option"><Link to="#">STUDY ABROAD</Link></li>
+                <li className="menu-option"><Link to="q&a">Q&A</Link></li>
+             </ul>
           </div>
         </div>
         <div className="header-right">
@@ -63,13 +75,13 @@ function MainNavbar() {
           </div>
         </div>
       </div>
-      <div className="header-container">
+      {/* <div className="header-container">
         <div className="header-middle">
            <div className='menu'>
              <ul>
                 <li className="menu-option"><Link to="/">HOME</Link></li>
                 <li className="menu-option"><Link to="#">MBA</Link></li>
-                <li className="menu-option"><Link to="engcollages">ENGINEERING</Link></li>
+                <li className="menu-option"><Link to="engineering">ENGINEERING</Link></li>
                 <li className="menu-option"><Link to="#">MEDICAL</Link></li>
                 <li className="menu-option"><Link to="#">DESIGN</Link></li>
                 <li className="menu-option"><Link to="#">STUDY ABROAD</Link></li>
@@ -77,7 +89,7 @@ function MainNavbar() {
              </ul>
           </div>
         </div>
-      </div>
+      </div> */}
 
 
     </header>

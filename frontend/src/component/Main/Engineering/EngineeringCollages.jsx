@@ -6,16 +6,16 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import CircularProgress from '@mui/material/CircularProgress';
 import { Box, CardHeader, Divider, Grid } from "@mui/material";
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
 import "../main.css";
 import { CollageInformation } from "./CollageInformantion";
-// import { SideBar } from "../Header/Sidebar";
 
 export function EngineeringCollages() {
   const [collages, setCollages] = React.useState([]);
   const[selectedcollageid, setSelectedCollageId]= React.useState(null)
-
+  const[loading,setLoading] = React.useState(false)
 
   function GetCollageDetails(event){
     const id = event.target.id;
@@ -23,54 +23,74 @@ export function EngineeringCollages() {
   }
 
   React.useEffect(() => {
+    setLoading(true)
     async function getCollages() {
       await axios
-        .get("http://127.0.0.1:80/api/getcolleges")
+        .get("api/getcolleges")
         .then((res) => {
           console.log(res);
           setCollages(res.data);
+          setLoading(false)
         })
         .catch((err) => {
           console.log(err);
+          setLoading(false)
         });
     }
     getCollages();
+
   }, []);
 
   return (
     <>
-      <b><h2 style={{marginLeft : 300}}>Top Engineering Colleges</h2></b>
-      {collages !== undefined ? (collages.map((e, index) => (
-      
-        <Box sx={{ display: "flex", margin: 5 }}>
-          <Card sx={{maxWidth: 500, minWidth: 500,marginLeft: 30}}>
-            <CardHeader
-              sx={{ backgroundColor: "#20dfdf" }}
-              avatar={<SchoolOutlinedIcon fontSize="large" />}
-              title={
-                <Typography sx={{ color: "#df5020", fontWeight: "bold" }}>
-                  {e.collagename}
-                </Typography>
-              }
-              subheader={
-                <Typography sx={{ fontSize: 10 }}>{e.state}</Typography>
-              }
-            />
-            <CardContent>
-              <Typography><b>Rating: </b>{e.rating}</Typography>
-              <Typography><b>Average Fees: </b> {e.averagefees}</Typography>
-            </CardContent>
-          <CardActions sx={{alignItems: 'center',justifyContent: 'center'}}>
-            <Button id={e._id} variant="contained" onClick={GetCollageDetails} >View Details</Button>
-          </CardActions>
-          </Card>
-        </Box>
-
-        // </div>
-      ))): ""}
-      <Box>
-        {selectedcollageid && <CollageInformation id={selectedcollageid}/>}
-      </Box>
+      {loading ? (
+        <center><CircularProgress color="success" /></center>
+      ) : (
+        <>
+          <b>
+            <hr />
+            <h2>Top Engineering Colleges</h2>
+            <hr />
+          </b>
+          {collages !== undefined ? (
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+          {collages.map((e, index) => (
+            <div key={index} style={{ marginRight: '20px', marginLeft: '20px', marginBottom: '20px' }}>
+              <Card sx={{ maxWidth: 400, minWidth: 400 }}>
+                <CardHeader
+                  sx={{ backgroundColor: '#E5DCDC' }}
+                  avatar={<SchoolOutlinedIcon fontSize="large" />}
+                  title={
+                    <Typography sx={{ color: '#000000', fontWeight: 'bold' }}>
+                      {e.collagename}
+                    </Typography>
+                  }
+                  subheader={
+                    <Typography sx={{ fontSize: 10 }}>{e.state}</Typography>
+                  }
+                />
+                <CardContent>
+                  <Typography>
+                    <b>Rating: </b>
+                    {e.rating}
+                  </Typography>
+                  <Typography>
+                    <b>Average Fees: </b> {e.averagefees}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+        
+          ) : (
+            <CircularProgress color="success" />
+          )}
+          <Box>
+            {selectedcollageid && <CollageInformation id={selectedcollageid} />}
+          </Box>
+        </>
+      )}
     </>
-  );
+  );  
 }

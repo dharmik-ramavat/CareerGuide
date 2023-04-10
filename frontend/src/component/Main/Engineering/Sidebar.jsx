@@ -11,12 +11,12 @@ import {
   checkboxClasses,
 } from "@mui/material";
 import * as React from "react";
-import { Btech } from "../Engineering/Btech";
-import { EngineeringCollages } from "../Engineering/EngineeringCollages";
-import { Mtech } from "../Engineering/Mtech";
+import { Btech } from "./Btech";
+import { EngineeringCollages } from "./EngineeringCollages";
+import { Mtech } from "./Mtech";
 
 export default function SideBar() {
-  const sidebaritems = ["B.E./B.TECH", "M.E./M.Tech", "Doploma", "Ph.D","Top Engineering Collages"];
+  const sidebaritems = ["B.E./B.TECH", "M.E./M.Tech","Top Engineering Collages"];
   const [checkbuttonindex, setCheckButtonIndex] = React.useState(0);
 
   function check(event, val) {
@@ -67,15 +67,9 @@ export default function SideBar() {
             <Btech/>
           ) : checkbuttonindex == 1 ? (
             <Mtech/>
-          ) : checkbuttonindex == 2 ? (
-            <h3>diploma</h3>
-          ) : checkbuttonindex == 3 ? (
-            <h3>Phd</h3>
           ) : (<EngineeringCollages/>)}
         </Box>
         </Grid>
-        
-        
        </Grid>
     </>
   );
