@@ -54,12 +54,12 @@ function MainNavbar() {
           <div className='menu'>
              <ul>
                 <li className="menu-option"><Link to="/">HOME</Link></li>
-                <li className="menu-option"><Link to="#">MBA</Link></li>
+                <li className="menu-option"><Link to="/after12th">After12</Link></li>
+                <li className="menu-option"><Link to="/after10th">After10</Link></li>
                 <li className="menu-option"><Link to="engineering">ENGINEERING</Link></li>
-                <li className="menu-option"><Link to="#">MEDICAL</Link></li>
-                <li className="menu-option"><Link to="#">DESIGN</Link></li>
-                <li className="menu-option"><Link to="#">STUDY ABROAD</Link></li>
-                <li className="menu-option"><Link to="q&a">Q&A</Link></li>
+                <li className="menu-option"><Link to="/medical">MEDICAL</Link></li>
+                <li className="menu-option"><Link to="/mba">MBA</Link></li>
+                <li className="menu-option"><Link to="/q&a">Q&A</Link></li>
              </ul>
           </div>
         </div>
@@ -70,7 +70,7 @@ function MainNavbar() {
                 cursor: "pointer",
               }}
               {...stringAvatar(user && user.displayName)}
-              onClick={() => auth.signOut()}
+              onClick={() => {auth.signOut();alert("You are logged out!");}}
             />
           </div>
         </div>

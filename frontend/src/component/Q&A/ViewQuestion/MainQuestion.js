@@ -266,7 +266,7 @@ function MainQuestion() {
                       asked {new Date(_q.created_at).toLocaleString()}
                     </small>
                     <div className="auth-details">
-                      <Avatar {...stringAvatar(_q?.user?.displayName)} />
+                      <center><Avatar {...stringAvatar(_q?.user?.displayName)} /></center>
                       <p>
                         {_q?.user?.displayName
                           ? _q?.user?.displayName

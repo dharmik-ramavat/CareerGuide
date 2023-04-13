@@ -11,11 +11,13 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 export default function MainContent() {
   return (
-    <>
+    <div  style={{paddingTop:"120px"}}>
       <Box
         sx={{
           display: "flex",
@@ -35,14 +37,11 @@ export default function MainContent() {
                 After 10th
               </Typography>
               <Typography sx={{ fontSize: "16px" , textAlign:"justify", margin:"10px" }}>
-                The MBA is the world’s most popular graduate management degree.
-                Employers love it and students can’t get enough of it. Thousands
-                of ambitious professionals apply to different types of MBA
-                programs each year. 
+              It’s important to assess your interest and aptitude, and match up with the understanding of the requirements of the career. If you choose a stream merely based on your interests and do not possess the right skills and abilities, it may cause a problem in the future. 
               </Typography>
             </CardContent>
             <CardActions style={{display: "flex", alignItems: "center" , justifyContent : "center"}}>
-              <Button variant="contained">Explore</Button>
+            <Link to='after10th'><Button variant="contained">Explore</Button></Link>
             </CardActions>
           </Card>
         </Grid>
@@ -53,14 +52,14 @@ export default function MainContent() {
                 After 12th
               </Typography>
               <Typography sx={{ fontSize: "16px", textAlign:"justify", margin:"10px" }}>
-                The MBA is the world’s most popular graduate management degree.
-                Employers love it and students can’t get enough of it. Thousands
-                of ambitious professionals apply to different types of MBA
-                programs each year. 
+              ‘What after 12th ?’ is the common question among the generation of
+          students studying in 12th standard. Every year the questions hit lakhs
+          of students in India and abroad. The confusion prevails among them
+          concerning career prospects, job opportunities.
               </Typography>
             </CardContent>
             <CardActions style={{display: "flex", alignItems: "center" , justifyContent : "center"}}>
-              <Button variant="contained">Explore</Button>
+            <Link to='after12th'><Button variant="contained">Explore</Button></Link>
             </CardActions>
           </Card>
         </Grid>
@@ -68,17 +67,14 @@ export default function MainContent() {
           <Card variant="outlined" className="card-items">
             <CardContent>
               <Typography sx={{ fontSize: "30px", fontWeight: "bold", padding:"10px" }}>
-                Diploma 
+                MBA 
               </Typography>
               <Typography sx={{ fontSize: "16px",textAlign:"justify", margin:"10px" }}>
-                The MBA is the world’s most popular graduate management degree.
-                Employers love it and students can’t get enough of it. Thousands
-                of ambitious professionals apply to different types of MBA
-                programs each year. 
+              A Master of Business Administration (MBA; also Master in Business Administration) is a postgraduate degree focused on business administration. The core courses in an MBA program cover various areas of business administration such as accounting, applied statistics.
               </Typography>
             </CardContent>
             <CardActions style={{display: "flex", alignItems: "center" , justifyContent : "center"}}>
-              <Button variant="contained">Explore</Button>
+            <Link to='mba'><Button variant="contained">Explore</Button></Link>
             </CardActions>
           </Card>
         </Grid>
@@ -89,18 +85,15 @@ export default function MainContent() {
                 Engineering
               </Typography>
               <Typography sx={{ fontSize: "16px" , textAlign:"justify" , margin:"10px" }}>
-                The MBA is the world’s most popular graduate management degree.
-                Employers love it and students can’t get enough of it. Thousands
-                of ambitious professionals apply to different types of MBA
-                programs each year. 
-              </Typography>
+              Engineering is a discipline dedicated to problem solving. Our built environment and infrastructure, the devices we use to communicate, the processes that manufacture our medicines, have all been designed, assembled or managed by an engineer.
+          </Typography>
             </CardContent>
             <CardActions style={{display: "flex", alignItems: "center" , justifyContent : "center"}}>
-              <Button variant="contained">Explore</Button>
+              <Link to='engineering'><Button variant="contained">Explore</Button></Link>
             </CardActions>
           </Card>
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 }

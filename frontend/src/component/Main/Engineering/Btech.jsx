@@ -12,7 +12,7 @@ import * as React from "react";
 
 export function Btech() {
   return (
-    <Box sx={{ margin: 10 }}>
+    <Box sx={{ margin: 10, paddingTop:'80px'}}>
       <h2>Bachelor OF Technology</h2>
       <Typography sx={{ fontSize: 16, textAlign: "justify " }}>
         Bachelor of Technology (BTech) is a professional undergraduate
@@ -211,7 +211,7 @@ export function Btech() {
             and the orientation of the programme. The following table captures
             the points of differences between these two programmes.
           </Typography>
-          <TableContainer sx={{ border: "1px solid black" }}>
+          <TableContainer sx={{ border: "1px solid black" ,margin:'20px'}}>
             <Table sx={{ border: "1px solid black" }}>
               <TableHead>
                 <TableRow sx={{ backgroundColor: "#20dfdf" }}>

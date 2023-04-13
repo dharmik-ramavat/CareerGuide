@@ -7,7 +7,7 @@ import "./css/Main.css";
 function Main({ questions }) {
   // console.log(questions)
   return (
-    <div className="main">
+    <div className="main"  style={{paddingTop:"120px"}}>
       <div className="main-container">
         <div className="main-top">
           <h2>All Questions</h2>

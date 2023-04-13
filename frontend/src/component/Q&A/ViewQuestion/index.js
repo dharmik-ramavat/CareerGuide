@@ -5,7 +5,7 @@ import Sidebar from '../Main/Sidebar'
 
 function index() {
   return (
-    <div className='stack-index'>
+    <div className='stack-index'  style={{paddingTop:"120px"}}>
       <div className="stack-index-content">
         <MainQuestion/>
       </div>

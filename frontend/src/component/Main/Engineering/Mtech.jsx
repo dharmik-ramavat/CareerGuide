@@ -12,7 +12,7 @@ import * as React from "react";
 
 export function Mtech() {
   return (
-    <Box sx={{ margin: 10 }}>
+    <Box sx={{ margin: 10, paddingTop:'80px' }}>
       <h2>Master OF Technology</h2>
       <Typography sx={{ fontSize: 16, textAlign: "justify " }}>
         Full form of ME is Master of Engineering and that of MTech is Master of

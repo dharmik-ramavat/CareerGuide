@@ -4,6 +4,7 @@ const router = express.Router();
 const questionRouter = require("./Question");
 const answerRouter = require("./Asnwer");
 const commentRouter = require("./Comments");
+const personalRouter = require("./Personal")
 
 const collegeRouter = require("./collages");
 
@@ -15,5 +16,7 @@ router.use("/question", questionRouter);
 router.use("/answer", answerRouter);
 router.use("/comment", commentRouter);
 router.use("/getcolleges", collegeRouter);
+router.use("/resume", personalRouter);
+
 
 module.exports = router;

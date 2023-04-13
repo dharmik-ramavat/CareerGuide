@@ -44,9 +44,10 @@ export function EngineeringCollages() {
   return (
     <>
       {loading ? (
-        <center><CircularProgress color="success" /></center>
+        <div style={{paddingTop:"80px"}}>
+        <center><CircularProgress color="success" /></center></div>
       ) : (
-        <>
+        <div  style={{paddingTop:"80px"}}>
           <b>
             <hr />
             <h2>Top Engineering Colleges</h2>
@@ -89,7 +90,7 @@ export function EngineeringCollages() {
           <Box>
             {selectedcollageid && <CollageInformation id={selectedcollageid} />}
           </Box>
-        </>
+        </div>
       )}
     </>
   );  

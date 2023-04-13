@@ -24,7 +24,7 @@ function Index() {
       .then((res) => {
         setLoading(false);
         console.log(res);
-         history.push("/");
+         history.push("/q&a");
 
       })
       .catch((error) => {
@@ -43,7 +43,7 @@ function Index() {
       signInWithEmailAndPassword(auth, email, password)
         .then((res) => {
           console.log(res);
-          history.push("/");
+          history.push("/q&a");
           setLoading(false);
         })
         .catch((error) => {
@@ -64,7 +64,7 @@ function Index() {
       createUserWithEmailAndPassword(auth, email, password)
         .then((res) => {
           console.log(res);
-          history.push("/");
+          history.push("/q&a");
           setLoading(false);
         })
         .catch((error) => {
@@ -75,7 +75,7 @@ function Index() {
     }
   };
   return (
-    <div className="auth">
+    <div className="auth"  style={{paddingTop:"120px"}}>
       <div className="auth-container">
         <div className="sign-options">
           <div onClick={handleGoogleSignIN} className="single-option">
@@ -160,6 +160,7 @@ function Index() {
                 color: "#0095ff",
                 textDecoration: "underline",
                 cursor: "pointer",
+                disable: {loading}
               }}
             >
               {register ? "Login" : "Register"} ?

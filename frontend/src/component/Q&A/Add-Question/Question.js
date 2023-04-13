@@ -78,7 +78,7 @@ function Index() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (title !== "" && body !== "") {
+    if (title !== "" ) {
       const bodyJSON = {
         title: title,
         body: body,
@@ -90,7 +90,7 @@ function Index() {
         .then((res) => {
           // console.log(res.data);
           alert("Question added successfully");
-          history.push("/");
+          history.push("/q&a");
         })
         .catch((err) => {
           console.log(err);
@@ -98,7 +98,7 @@ function Index() {
     }
   };
   return (
-    <div className="add-question">
+    <div className="add-question"  style={{paddingTop:"120px"}}>
       <div className="add-question-container">
         <div className="head-title">
           <h1>Ask a public question</h1>
@@ -106,7 +106,7 @@ function Index() {
         <div className="question-container">
           <div className="question-options">
             <div className="question-option">
-              <div className="title">
+              <div className="q-title">
                 <h3>Title</h3>
                 <small>
                   Be specific and imagine you’re asking a question to another
@@ -121,7 +121,7 @@ function Index() {
               </div>
             </div>
             <div className="question-option">
-              <div className="title">
+              <div className="q-title">
                 <h3>Body</h3>
                 <small>
                   Include all the information someone would need to answer your
@@ -137,7 +137,7 @@ function Index() {
               </div>
             </div>
             <div className="question-option">
-              <div className="title">
+              <div className="q-title">
                 <h3>Tags</h3>
                 <small>
                   Add up to 5 tags to describe what your question is about
@@ -156,7 +156,7 @@ function Index() {
           </div>
         </div>
 
-        <button onClick={handleSubmit} className="button">
+        <button onClick={handleSubmit} className="button" style={{MarginTop:'20px'}}>
           Add your question
         </button>
       </div>

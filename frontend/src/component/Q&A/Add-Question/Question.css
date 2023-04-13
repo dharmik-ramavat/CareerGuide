@@ -47,23 +47,23 @@
   width: 100%;
 }
 
-.title {
+.q-title {
   display: flex;
   flex-direction: column;
   margin: 10px 0px;
   font-size: 0.9rem;
 }
 
-.title > h3 {
+.q-title > h3 {
   color: rgba(0, 0, 0, 0.8);
   font-weight: 500;
 }
 
-.title > small {
+.q-title > small {
   color: rgba(0, 0, 0, 0.8);
 }
 
-.title > input {
+.q-title > input {
   margin: 5px 0px;
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -71,10 +71,10 @@
   outline: none;
 }
 
-.title > input::placeholder {
+.q-title > input::placeholder {
   color: #ddd;
 }
-.title > input:focus {
+.q-title > input:focus {
   border: 1px solid #02524a;
   box-shadow: 0 4px 8px 0 #0055ff23, 0 6px 20px 0 #0055ff11;
 }
